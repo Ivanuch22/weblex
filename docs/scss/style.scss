@@ -1,7 +1,35 @@
+//початкові стилі, стартові
 @import'nulestyle';
+//шрифти
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Montserrat:wght@300;400;500;600&family=Roboto&display=swap');
 
 :root {
-    --main-bg-collor        : #000;
-    --main-bg-border-collor : #fff;
-    --yt-spec-text-secondary: #333;
+    --main-font           : 'Inter', sans-serif;
+    --main-font-size      : 16px;
+    --main-color          : #E4E5EA;
+    --main-bg-color       : #0E1014;
+    --main-container-width: 1170px;
+
+}
+
+body {
+    font-family     : var(--main-font);
+    font-size       : var(--main-font-size);
+    color           : var(--main-color);
+    background-color: var(--main-bg-color);
+}
+
+[class*="__container"] {
+    max-width: var(--main-container-width);
+    margin   : 0 auto;
+    padding  : 0 15px;
+}
+
+.title__container {
+    background             : linear-gradient(92deg, #FCB045 27.14%, #FF3F78 121.36%), #E4E5EA;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip        : text;
+    text-fill-color        : transparent;
+
 }
