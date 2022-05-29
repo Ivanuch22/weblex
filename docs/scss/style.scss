@@ -375,7 +375,7 @@ span {
         /* Note        : backdrop-filter has minimal browser support */
         width          : 83px;
         height         : 83px;
-        top            : -83;
+        top            : -83px;
         border-radius  : 50%;
         transform      : translateY(-100%);
         left           : 36%;
@@ -428,9 +428,71 @@ span {
 }
 
 @media (max-width: 650px) {
+    .first-section .third {
+        z-index: 2;
+        top    : 100px;
+        left   : 83%;
+    }
+
+    .main {
+        overflow: hidden;
+    }
+
+    .first-section .first {
+        background    : #fcb045;
+        width         : 280px;
+        height        : 280px;
+        top           : 92%;
+        left          : -1.6%;
+        opacity       : .8;
+        -webkit-filter: blur(392px);
+        filter        : blur(392px);
+    }
+
+    .first-section .fifth {
+        width  : 100%;
+        height : 81%;
+        top    : 68%;
+        z-index: -2;
+        left   : -5%;
+
+    }
+
+    .main::after {
+        left : auto;
+        right: 0;
+        top  : 44%;
+    }
+
+    .first-section .fourth {
+        width : 55px;
+        height: 55px;
+        top   : 86%;
+        left  : 7%;
+    }
+
+    .first-section::before {
+        width: 100%;
+        top  : 100%;
+    }
+
     .header {
         background-color: #000;
         padding-top     : 15px;
+    }
+
+    .first-section .second {
+        left  : 6%;
+        top   : 127%;
+        width : 26px;
+        height: 26px;
+    }
+
+    .first-section .sixth {
+        width : 18px;
+        height: 18px;
+        bottom: -21%;
+        left  : 85.1%;
     }
 
     .menu {
