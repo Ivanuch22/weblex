@@ -8,35 +8,35 @@ const imagemin = require('gulp-imagemin');
 const del = require('del');
 
 function styles() {
-    return src('docs/scss/*.scss')
+    return src('dist/scss/*.scss')
         .pipe(scss({ outputStyle: "compressed" }))
         .pipe(concat('style.min.css'))
         .pipe(autoprefixer({
             overrideBrowserslist: ['last 10 version'],
             grid: true
         }))
-        .pipe(dest("docs/css"))
+        .pipe(dest("dist/css"))
         .pipe(browserSync.stream())
 }
 
 function browsersync() {
     browserSync.init({
         server: {
-            baseDir: 'docs/'
+            baseDir: 'dist/'
         }
     })
 }
 
 function scripts() {
-    return src(['docs/js/main.js'])
+    return src(['dist/js/main.js'])
         .pipe(concat('main.min.js'))
         .pipe(uglify())
-        .pipe(dest('docs/js'))
+        .pipe(dest('dist/js'))
         .pipe(browserSync.stream())
 }
 
 function images() {
-    return src('docs/img/**/*')
+    return src('dist/img/**/*')
         .pipe(imagemin([
             imagemin.gifsicle({ interlaced: true }),
             imagemin.mozjpeg({ quality: 75, progressive: true }),
@@ -48,27 +48,27 @@ function images() {
                 ]
             })
         ]))
-        .pipe(dest('dist/img'))
+        .pipe(dest('docs/img'))
 }
 
 function build() {
     return src([
-        'docs/css/style.min.css',
-        'docs/fonts/**/*',
-        'docs/js/main.min.js',
-        'docs/*.html'
+        'dist/css/style.min.css',
+        'dist/fonts/**/*',
+        'dist/js/main.min.js',
+        'dist/*.html'
     ], { base: 'docs' })
-        .pipe(dest('dist'))
+        .pipe(dest('docs'))
 }
 
 function cleanDist() {
-    return del('dist')
+    return del('docs')
 }
 
 function watching() {
-    watch(['docs/scss/**/*.scss'], styles);
-    watch(["docs/js/**/*.js", '!docs/js/main.min.js'], scripts);
-    watch(["docs/*.html"]).on('change', browserSync.reload);
+    watch(['dist/scss/**/*.scss'], styles);
+    watch(["dist/js/**/*.js", '!docs/js/main.min.js'], scripts);
+    watch(["dist/*.html"]).on('change', browserSync.reload);
 }
 
 
