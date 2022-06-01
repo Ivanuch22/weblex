@@ -407,7 +407,13 @@ span {
         backdrop-filter: blur(4px);
         // /* Note: backdrop-filter has minimal brows
     }
+
+
+
 }
+
+
+
 
 @media (max-width:1024px) {
     .menu__item-text {
@@ -428,11 +434,15 @@ span {
 }
 
 @media (max-width: 650px) {
+
+
     .first-section .third {
         z-index: 2;
         top    : 100px;
-        left   : 83%;
+        left   : 73%;
+        opacity: 1;
     }
+
 
     .main {
         overflow: hidden;
@@ -442,9 +452,9 @@ span {
         background    : #fcb045;
         width         : 280px;
         height        : 280px;
-        top           : 92%;
+        top           : 55%;
         left          : -1.6%;
-        opacity       : .8;
+        opacity       : .6;
         -webkit-filter: blur(392px);
         filter        : blur(392px);
     }
@@ -651,6 +661,268 @@ span {
     .first-section__block--button {
         &:last-child {
             display: none;
+        }
+    }
+}
+
+//second-section styles
+
+.second-section {
+    margin-top: 252px;
+    // .second-section__container
+
+    &__container {}
+
+    // .second-section__title
+
+    &__title {
+        font-size    : 48px;
+        line-height  : 58px;
+        margin-bottom: 70px;
+    }
+
+    // .second-section__description
+
+    &__description {
+        font-size    : 24px;
+        line-height  : 29px;
+        margin-bottom: 50px;
+
+    }
+
+
+
+    // .second-section__description--yellow-collor
+
+    &__description--yellow-collor {
+        font-weight: 700;
+    }
+
+    // .second-section__row
+
+    &__row {
+        display        : flex;
+        justify-content: space-between;
+    }
+
+    // .second-section__collum
+
+    &__collum {
+        position: relative;
+        width   : 50%;
+
+        &:first-child {
+            &:hover {
+                cursor: pointer;
+
+                .second-section__collum-img {
+                    filter: grayscale(0%);
+                }
+
+                .second-section__collum-text {
+                    svg {
+                        fill: #396ADB;
+
+                    }
+                }
+            }
+
+            .second-section__collum-text {
+                bottom   : 0;
+                right    : -28px;
+                transform: translateX(100%);
+
+                svg {
+                    background-color: transparent;
+                    margin-bottom   : 10px;
+                    fill            : #E4E5EA;
+                    width           : 44px;
+                    height          : 44px;
+                    transition      : all 0.3s;
+                }
+            }
+
+            .second-section__collum-box {
+                width: 100%;
+            }
+
+            .second-section__collum-img {
+                filter    : grayscale(40%);
+                transition: all 0.3s;
+
+
+            }
+        }
+
+        &:last-child {
+
+            // position: absolute;
+            // width   : 580px;
+            // right   : 0px;
+            .second-section__collum-text {
+                left: 30px;
+            }
+
+            .second-section__collum-img {
+                position: absolute;
+                left    : 0;
+                right   : 0;
+                bottom  : 0;
+            }
+
+            .second-section__collum-box {
+                width   : 100%;
+                height  : 100%;
+                position: relative;
+
+
+
+                &::before {
+                    content   : '';
+                    position  : absolute;
+                    background: linear-gradient(205.61deg, rgba(14, 16, 20, 0) 61.2%, rgba(186, 86, 209, 0.32) 103.33%);
+                    transform : matrix(-1, 0, 0, 1, 0, 0);
+                    left      : 0;
+                    bottom    : 0;
+                    right     : 0;
+                    top       : 0;
+                }
+
+                &::after {
+                    content       : '';
+                    position      : absolute;
+                    right         : 20%;
+                    top           : 60%;
+                    transform     : translateY(-50%);
+                    width         : 25px;
+                    height        : 26px;
+                    background    : radial-gradient(64% 64% at 27.25% 26.5%, rgba(236, 208, 255, 0.64) 0%, rgba(161, 93, 207, 0.24) 59.67%, rgba(118, 49, 164, 0.208) 78.59%, rgba(86, 24, 128, 0.232) 100%)
+                        /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */
+                    ;
+                    border-radius  : 50%;
+                    box-shadow     : 3px 6px 27px -10px rgba(177, 118, 217, 0.25), inset -4px 4px 7px rgba(161, 138, 180, 0.2);
+                    backdrop-filter: blur(4px);
+                }
+            }
+        }
+    }
+
+    // .second-section__collum-text
+
+    &__collum-text {
+        position   : absolute;
+        font-size  : 16px;
+        line-height: 20px;
+        font-family: var(--second-font);
+        font-weight: var(--second-font-weight);
+    }
+
+    // .second-section__collum-box
+
+    &__collum-box {
+        position: relative;
+    }
+
+    // .second-section__collum-img
+
+    &__collum-img {
+        width : 100%;
+        height: auto;
+    }
+}
+
+.second-description {
+    display: none;
+}
+
+@media (max-width: 1024px) {
+    .second-section__collum:first-child .second-section__collum-text {
+        right    : auto;
+        z-index  : 2;
+        left     : 10px;
+        transform: translateX(0);
+    }
+}
+
+@media (max-width: 650px) {
+    // .second-section__collum:last-child .second-section__collum-text {
+    //     display: none;
+    // }
+
+    .second-section__title {
+        font-size    : 12vw;
+        line-height  : 120%;
+        margin-bottom: 40px;
+    }
+
+    .second-section__description {
+        font-size  : 6vw;
+        line-height: 120%;
+        margin     : 0;
+    }
+
+    .second-description {
+        display: block;
+    }
+
+    .second-section__row {
+        flex-direction: row-reverse;
+    }
+
+    .second-section__collum:first-child .second-section__collum-text {
+        color: transparent;
+
+        position : absolute;
+        top      : 50%;
+        left     : 50%;
+        transform: translate(-50%, -50%);
+
+        svg {
+            position : absolute;
+            top      : 50%;
+            left     : 50%;
+            transform: translate(-50%, -50%);
+        }
+
+    }
+
+    .second-section__collum:first-child {
+        margin-top: 95px;
+        width     : 100%;
+
+    }
+
+    .second-section__collum:last-child .second-section__collum-text {
+        font-size  : 14px;
+        line-height: 17px;
+        right      : -20px;
+        top        : 40px;
+        left       : auto;
+        width      : 150px;
+        transform  : translateX(100%);
+    }
+
+    .second-section__collum:last-child .second-section__collum-box {
+        &::after {
+            top   : 28%;
+            left  : 20%;
+            filter: blur(4px);
+        }
+
+        &::before {
+            background: linear-gradient(118.61deg, rgba(14, 16, 20, 0) 61.2%, rgba(186, 86, 209, 0.32) 103.33%);
+        }
+
+        img {
+            width    : 232%;
+            transform: translateX(-35%);
+
+        }
+    }
+
+    .second-section__collum {
+        &:last-child {
+            background: transparent;
         }
     }
 }
