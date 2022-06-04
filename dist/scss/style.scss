@@ -258,7 +258,7 @@ span {
         width              : 57.05%;
         z-index            : -2;
         height             : 142.7%;
-        background-image   : url('../image/Polyhedron.png');
+        background-image   : url('../images/Polyhedron.png');
         background-position: center;
         background-repeat  : no-repeat;
         background-size    : contain;
@@ -411,7 +411,7 @@ span {
         top                : -230px;
         z-index            : -2;
         left               : 40%;
-        background-image   : url('../image/dots.svg');
+        background-image   : url('../images/dots.svg');
         background-size    : cover;
         background-position: center;
         background-repeat  : no-repeat;
@@ -1030,12 +1030,21 @@ span {
     }
 }
 
+@media (max-width:1440px) {
+
+    .thirth-section__row {
+        width: 90%;
+    }
+
+}
+
 @media (max-width:650px) {
     .thirth-section__container {
         padding-top: 80px;
     }
 
     .thirth-section__row {
+        width    : 100%;
         flex-wrap: wrap;
     }
 

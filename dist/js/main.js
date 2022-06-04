@@ -4,16 +4,16 @@ const body = document.querySelector('body');
 const changeCssStyleMenuWhenScrolling = () => {
     window.addEventListener('scroll', () => {
         if (window.screen.width <= 650) {
-            if (window.pageYOffset >= 50) {
+            if (window.pageYOffset >= 49) {
                 menu.style.cssText = `
                 z-index:22;
                 top: 0;
                 position: fixed;
                 `;
-            } else if (window.pageYOffset < 50) {
+            } else if (window.pageYOffset < 49) {
                 menu.style.cssText = `
                 z-index:22;
-                top: 50px;
+                top: 49px;
                 position: absolute;
                 `;
             }
