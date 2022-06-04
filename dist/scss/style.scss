@@ -85,12 +85,23 @@ span {
     padding  : 0 15px;
 }
 
+[class*="__title"] {
+    font-family  : var(--main-font);
+    font-weight  : var(--main-font-weight);
+    font-size    : 48px;
+    line-height  : 58px;
+    color        : var(--main-font-color);
+    margin-bottom: 70px;
+
+}
+
 [class*="--yellow-collor"] {
     background             : linear-gradient(92deg, #FCB045 27.14%, #FF3F78 121.36%), #E4E5EA;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip        : text;
     text-fill-color        : transparent;
+    font-weight            : 700;
 }
 
 [class*="--button"] {
@@ -101,6 +112,15 @@ span {
 
     &:hover {
         box-shadow: 0px 0px 40px 6px rgba(64, 119, 243, 0.3);
+    }
+}
+
+@media (max-width: 768px) {
+    [class*="__title"] {
+        font-size    : 40px;
+        line-height  : 120%;
+        margin-bottom: 40px;
+
     }
 }
 
@@ -238,7 +258,7 @@ span {
         width              : 57.05%;
         z-index            : -2;
         height             : 142.7%;
-        background-image   : url('../img/Polyhedron.svg');
+        background-image   : url('../img/Polyhedron.png');
         background-position: center;
         background-repeat  : no-repeat;
         background-size    : contain;
@@ -251,12 +271,15 @@ span {
     }
 
     &__title {
-        font-size  : 48px;
-        line-height: 58px;
+        font-size    : 48px;
+        line-height  : 58px;
+        margin-bottom: 30px;
     }
 
     &__title--yellow-collor {
         font-weight: 900;
+        margin     : 0;
+        display    : inline;
     }
 
     &__description {
@@ -669,17 +692,7 @@ span {
 
 .second-section {
     margin-top: 252px;
-    // .second-section__container
 
-    &__container {}
-
-    // .second-section__title
-
-    &__title {
-        font-size    : 48px;
-        line-height  : 58px;
-        margin-bottom: 70px;
-    }
 
     // .second-section__description
 
@@ -712,23 +725,11 @@ span {
         width   : 50%;
 
         &:first-child {
-            &:hover {
-                cursor: pointer;
 
-                .second-section__collum-img {
-                    filter: grayscale(0%);
-                }
-
-                .second-section__collum-text {
-                    svg {
-                        fill: #396ADB;
-
-                    }
-                }
-            }
 
             .second-section__collum-text {
                 bottom   : 0;
+                z-index  : 234;
                 right    : -28px;
                 transform: translateX(100%);
 
@@ -835,6 +836,22 @@ span {
     display: none;
 }
 
+.second-section__collum:first-child,
+.second-section__collum:first-child .second-section__collum-text {
+    &:hover {
+        cursor: pointer;
+
+        .second-section__collum-img {
+            filter: grayscale(0%);
+        }
+
+        svg {
+            fill: #396ADB;
+
+        }
+    }
+}
+
 @media (max-width: 1024px) {
     .second-section__collum:first-child .second-section__collum-text {
         right    : auto;
@@ -924,5 +941,149 @@ span {
         &:last-child {
             background: transparent;
         }
+    }
+}
+
+.thirth-section {
+    position: relative;
+
+    &::before {
+        content      : '';
+        position     : absolute;
+        top          : 66px;
+        left         : -105px;
+        width        : 364px;
+        height       : 364px;
+        background   : #961A1A;
+        border-radius: 50%;
+        opacity      : 0.5;
+        filter       : blur(392px);
+    }
+
+    &::after {
+        content      : '';
+        position     : absolute;
+        top          : -45px;
+        border-radius: 50%;
+        right        : 170px;
+        width        : 308px;
+        height       : 308px;
+        background   : #EE3E34;
+        opacity      : 0.4;
+        filter       : blur(392px);
+    }
+
+    // .thirth-section__container
+
+    &__container {
+        padding-top: 150px;
+    }
+
+    // .thirth-section__title
+
+    &__title {}
+
+    // .thirth-section__description
+
+    &__description {
+        font-size    : 24px;
+        margin-bottom: 51px;
+        line-height  : 29px;
+    }
+
+    // .thirth-section__description--yellow-collor
+
+    &__description--yellow-collor {
+        display: inline;
+    }
+
+    // .thirth-section__row
+
+    &__row {
+        display        : flex;
+        justify-content: space-between;
+        max-width      : 977px;
+    }
+
+    // .thirth-section__collum
+
+    &__collum {}
+
+    // .thirth-section__collum-number
+
+    &__collum-number {
+        font-size    : 48px;
+        line-height  : 58px;
+        margin-bottom: 5px;
+    }
+
+    // .thirth-section__collum-number--yellow-collor
+
+    &__collum-number--yellow-collor {}
+
+    // .thirth-section__collum-description
+
+    &__collum-description {
+        font-size  : 18px;
+        line-height: 22px;
+
+    }
+}
+
+@media (max-width:650px) {
+    .thirth-section__container {
+        padding-top: 80px;
+    }
+
+    .thirth-section__row {
+        flex-wrap: wrap;
+    }
+
+    .thirth-section__collum {
+        margin-bottom: 15px;
+        margin-right : 15px;
+    }
+
+    .thirth-section__description {
+        width: 95%;
+
+
+        br {
+            display: none;
+        }
+
+        font-size    : 4vh;
+        margin-bottom: 30px;
+        line-height  : 120%;
+        font-weight  : var(--second-font-weight);
+    }
+
+    .thirth-section__collum-number {
+        font-size  : 36px;
+        line-height: 44px;
+    }
+
+    .thirth-section__collum-description {
+        font-size  : 14px;
+        line-height: 17px;
+    }
+
+    .thirth-section::after {
+        opacity: 0;
+    }
+
+    .thirth-section::before {
+        width           : 211px;
+        height          : 210px;
+        z-index         : 23;
+        background-color: #fff;
+        background      : #961A1A;
+        filter          : blur(212px);
+        opacity         : 1;
+        bottom          : 0;
+        right           : 0;
+        transform       : translate(50%, 20%);
+        top             : auto;
+        left            : auto;
     }
 }

@@ -36,7 +36,7 @@ function scripts() {
 }
 
 function images() {
-    return src('dist/img/**/*')
+    return src('dist/images/**/*')
         .pipe(imagemin([
             imagemin.gifsicle({ interlaced: true }),
             imagemin.mozjpeg({ quality: 75, progressive: true }),
@@ -48,7 +48,7 @@ function images() {
                 ]
             })
         ]))
-        .pipe(dest('docs/img'))
+        .pipe(dest('docs/images'))
 }
 
 function build() {
@@ -57,7 +57,7 @@ function build() {
         'dist/fonts/**/*',
         'dist/js/main.min.js',
         'dist/*.html'
-    ], { base: 'docs' })
+    ], { base: 'dist' })
         .pipe(dest('docs'))
 }
 
@@ -67,7 +67,7 @@ function cleanDist() {
 
 function watching() {
     watch(['dist/scss/**/*.scss'], styles);
-    watch(["dist/js/**/*.js", '!docs/js/main.min.js'], scripts);
+    watch(["dist/js/**/*.js", '!dist/js/main.min.js'], scripts);
     watch(["dist/*.html"]).on('change', browserSync.reload);
 }
 
